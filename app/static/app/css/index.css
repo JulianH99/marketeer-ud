@@ -1,0 +1,5 @@
+ul li {
+  list-style-image: url(assets/ic-check.svg);
+  margin-left: 39px;
+  padding-inline-start: 12px;
+}
