@@ -1,0 +1,47 @@
+
+{% extends "app/base.html" %}
+
+
+
+{% block content %}
+  
+
+  <style>
+
+  body{
+    background-color: #F4F5F7;
+
+  }
+
+  </style>
+
+  <main class="flex h-screen">
+    <aside class="bg-primary">
+      <div class="menu-picture my-5 px-3">
+        <div class="rounded-full overflow-hidden">
+          <img src="https://picsum.photos/30" alt="">
+        </div>
+      </div>
+      <div class="border border-white"></div>
+
+    </aside>
+
+    <div class="main p-12">
+      <div class="rounded-3xl bg-white flex px-10">
+        <div>
+          <p class="font-league-spartan font-semibold text-6xl">Bienvenido,
+            <span class="text-primary">Usuario</span></p>
+
+          <p>Ponte al día con las últimas actualizaciones de tu campaña de
+            markenting digital</p>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+{% endblock %}

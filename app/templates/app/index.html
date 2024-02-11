@@ -1,29 +1,48 @@
 {% extends 'app/base.html' %}
-
 {% block content %}
   {% load static %}
   <header class="flex justify-between items-center px-16 py-7 absolute top-0 left-0 w-full z-10">
     <div class="logo">
-      <img class="w-96" src="{% static 'app/assets/ic-logo.svg' %}" alt="Marketeer">
+      <img class="w-96"
+           src="{% static 'app/assets/ic-logo.svg' %}"
+           alt="Marketeer">
     </div>
-    <a class="font-league-spartan text-2xl text-accent uppercase" 
-      href="{% url 'login'  %}">Login</a>
+    <a class="font-league-spartan text-2xl text-accent uppercase"
+       href="{% url 'login' %}">Login</a>
   </header>
   <main class="h-screen flex justify-between items-center px-16 py-7">
     <div class="content max-w-xl">
-      <h1 class="font-league-spartan text-6xl tracking-wide text-black mb-12 font-semibold">A nice social media manager</h1>
-      <p class="font-lato text-3xl text-gray mb-9">Manage your marketing with the ease of a click.<br><br>With Marketeer you can:</p>
+      <h1 class="font-league-spartan text-6xl tracking-wide text-black mb-12 font-semibold">
+        El mejor sistema de marketing digital
+      </h1>
+      <p class="font-lato text-3xl text-gray mb-9">
+        Administra tu estrategia de marketing con un click.
+        <br>
+        <br>
+        Con Marketeer tú puedes:
+      </p>
       <ul class="font-lato text-3xl text-gray">
-        <li class="tracking-in-expand-1 mb-7 z-10">Follow your social media interactions</li>
-        <li class="tracking-in-expand-2 mb-7 z-10">Create engagement campains</li>
-        <li class="tracking-in-expand-3 mb-7 z-10">Put your business on top of the game</li>
+        <li class="mb-7 z-10 flex">
+          <img src="{% static 'app/assets/ic-check.svg' %}" alt="" class="mr-4">
+          <span>Monitorear las interacciones de tus redes sociales</span>
+        </li>
+        <li class="mb-7 z-10 flex">
+          <img src="{% static 'app/assets/ic-check.svg' %}" alt="" class="mr-4">
+          <span>Crear campañas de fidelización</span>
+        </li>
+        <li class="mb-7 z-10 flex">
+          <img src="{% static 'app/assets/ic-check.svg' %}" alt="" class="mr-4">
+          <span>Hacer que tu negocio llegue a la cima</span>
+        </li>
       </ul>
     </div>
     <div class="banner">
-      <img class="absolute top-0 right-0 w-2/4" src="{% static 'app/assets/bg-landing.png' %}" alt="background">
-      <img class="absolute bottom-7 right-7 w-3/5 slide-in-right"  
-           src="{% static 'app/assets/bg-landing-pc.svg' %}" alt="Marketeer backoffice">
+      <img class="absolute top-0 right-0 w-2/4"
+           src="{% static 'app/assets/bg-landing.png' %}"
+           alt="background">
+      <img class="absolute bottom-7 right-7 w-3/5 slide-in-right"
+           src="{% static 'app/assets/bg-landing-pc.svg' %}"
+           alt="Marketeer backoffice">
     </div>
   </main>
-
 {% endblock %}

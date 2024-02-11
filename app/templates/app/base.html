@@ -1,15 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marketeer</title>
-  <!-- Tailwind CDN script -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Tailwind custom config -->
-  <script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketeer</title>
+    <!-- Tailwind CDN script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind custom config -->
+    <script>
     tailwind.config = {
       theme: {
         extend: {
@@ -19,6 +18,10 @@
             black: '#373F41',
             gray: '#7E7E7E',
             white: '#F4F5F7',
+            'gray-2': '#D9D6D6'
+          },
+          minWidth: {
+            600: '600px'
           }
         },
         fontFamily: {
@@ -27,27 +30,25 @@
         }
       }
     }
-  </script>
-  <!-- Tailwind custom css -->
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
+    </script>
+    <!-- Tailwind custom css -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
       }
-    }
-  </style>
-  <!-- Google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=League+Spartan:wght@400;600;900&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
-  <link rel="stylesheet" href="{% static 'app/css/animations.css' %}">
-</head>
-
-<body class="bg-white">
-    {% block content %}
-    {% endblock %}
-</body>
-
+    </style>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=League+Spartan:wght@400;600;900&display=swap"
+          rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/animations.css' %}">
+  </head>
+  <body class="bg-white">
+    {% block content %}{% endblock %}
+  </body>
 </html>

@@ -1,0 +1,7 @@
+[tool.djlint]
+format_css=true
+indent=2
+ignore='H006'
+
+[tool.djlint.css]
+indent_size=2

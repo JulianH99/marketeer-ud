@@ -1,11 +1,75 @@
-{% extends 'base.html' %}
-
-
+{% extends 'app/base.html' %}
+{% load static %}
 {% block content %}
+  <style>
+    body {
+      background-image: url("{% static 'app/assets/loginbackground.svg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
-<div>
-  <form action=""></form>
-</div>
+    form {
+      backdrop-filter: blur(17px);
+      box-shadow: 0px 0px 17px 9px #00000017;
+    }
 
 
+    input:active,
+    input:focus {
+      outline: none;
+      box-shadow: 0px 0px 4px 0px #67C1D6B2;
+    }
+  </style>
+  <header class="flex justify-between items-center px-16 py-7 absolute top-0 left-0 w-full z-10">
+    <div class="logo">
+      <img class="w-96"
+           src="{% static 'app/assets/ic-logo.svg' %}"
+           alt="Marketeer">
+    </div>
+  </header>
+  <main class="h-screen flex justify-between items-center px-16 py-7 mx-auto max-w-[90%]">
+    <div>
+      <img src="{% static 'app/assets/login.svg' %}" alt="">
+    </div>
+    <form action="{% url 'login' %}"
+          method="post"
+          class="bg-white/90 font-league-spartan px-12 py-14 rounded-3xl min-w-600">
+      {% csrf_token %}
+      <h2 class="text-primary font-bold text-4xl text-center uppercase tracking-wider mb-8">Ingreso</h2>
+      <div class="form-group block mb-5">
+        <label for="email"
+               class="flex items-center font-lato text-xl text-gray font-bold mb-4">
+          <img src="{% static 'app/assets/user-alt.svg' %}"
+               alt="User icon"
+               class="mr-2.5">
+          Email
+        </label>
+        <input type="email"
+               id="email"
+               name="email"
+               class="block w-full py-3.5 px-5 rounded-lg font-lato text-xl border border-gray-2 focus:border-primary ">
+      </div>
+      <div class="form-group block">
+        <label for="password"
+               class="flex items-center font-lato text-xl text-gray font-bold mb-4">
+          <img src="{% static 'app/assets/password.svg' %}"
+               alt="Password icon"
+               class="mr-2.5">
+          Contraseña
+        </label>
+        <input type="password"
+               id="password"
+               name="password"
+               class="block w-full py-3.5 px-5 rounded-lg font-lato text-xl border border-gray-2 focus:border-primary">
+        <a href="forgot-password"
+           class="text-right block underline mt-2.5 text-primary">¿Olvidaste tu contraseña?</a>
+      </div>
+      <button type="submit"
+              class="mt-8 flex items-center justify-center uppercase py-3 px-14 rounded-3xl mx-auto bg-primary text-white mb-2.5 font-bold font-lato">
+        Ingresar
+      </button>
+      <a href="create-account"
+         class="block text-center text-primary underline">Crear cuenta</a>
+    </form>
+  </main>
 {% endblock %}
