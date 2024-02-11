@@ -1,21 +1,78 @@
-
 {% extends "app/base.html" %}
-
-
-
+{% load static %}
+{% block head %}
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="{% static 'app/js/charts.js' %}" defer></script>
+{% endblock %}
 {% block content %}
-  
-
   <style>
+    body {}
 
-  body{
-    background-color: #F4F5F7;
+    .main {
+      position: relative;
+    }
 
-  }
+    .main::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 560px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
 
+      background-color: #F4F5F7;
+      background-image: url("{% static 'app/assets/dashboard.svg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .account {
+      border: 1px solid #ECECEC;
+      border-top-width: 5px;
+
+      cursor: pointer;
+      transition: all .3s;
+    }
+
+    .account .followers {
+      transition: all .3s;
+    }
+
+    .account#facebook {
+      --account-color: #3F51B5;
+    }
+
+    .account#twitter {
+      --account-color: #03A9F4;
+    }
+
+    .account#instagram {
+      --account-color: #FFC04F;
+    }
+
+    .account#youtube {
+      --account-color: #FF3D00;
+    }
+
+    .account:hover {
+      border-color: var(--account-color);
+      border-width: 5px 1px 1px 1px;
+      border-style: solid;
+    }
+
+    .account:hover .followers {
+      color: var(--account-color);
+    }
+
+    /* .account#instagram:hover { */
+    /*   border-width: 5px 1px 1px 1px; */
+    /*   border-style: solid; */
+    /*   border-image-source: linear-gradient(to left, , #FF1E45, #3E4CF3); */
+    /* } */
   </style>
-
-  <main class="flex h-screen">
+  <main class="flex min-h-screen">
     <aside class="bg-primary">
       <div class="menu-picture my-5 px-3">
         <div class="rounded-full overflow-hidden">
@@ -23,25 +80,50 @@
         </div>
       </div>
       <div class="border border-white"></div>
-
     </aside>
-
-    <div class="main p-12">
-      <div class="rounded-3xl bg-white flex px-10">
+    <div class="main p-12 w-full">
+      <div class="rounded-3xl bg-white flex px-10 shadow-sm block justify-between items-center py-4">
         <div>
-          <p class="font-league-spartan font-semibold text-6xl">Bienvenido,
-            <span class="text-primary">Usuario</span></p>
-
-          <p>Ponte al día con las últimas actualizaciones de tu campaña de
-            markenting digital</p>
+          <p class="font-league-spartan font-semibold text-6xl">
+            Bienvenido,
+            <span class="text-primary">Usuario</span>
+          </p>
+          <p class="text-gray font-lato text-2xl">
+            Ponte al día con las últimas actualizaciones de tu campaña de
+            markenting digital
+          </p>
         </div>
-
-
+        <img src="{% static 'app/assets/dashboard-trees.svg' %}" alt="Trees">
       </div>
-
+      <div id="social-media-accounts" class="mt-9 mb-20">
+        <p class="text-primarydark font-league-spartan font-semibold text-4xl mb-5">Social Media Accounts</p>
+        <div id="social-media-accounts-list" class="flex gap-6">
+          {% for account in accounts %}
+            <div class="account rounded-lg bg-white p-3 font-lato grow max-w-64"
+                 id="{{ account.id }}">
+              <span class="flex items-center text-black">
+                <img src="{% static account.icon %}" alt="{{ account.name }}" class="pr-1">
+                {{ account.account }}
+              </span>
+              <span class="followers py-4 font-lato font-extrabold text-5xl text-center block text-black">{{ account.followers }}</span>
+              <span class="block text-center font-lato font-light text-gray">Followers</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div id="charts">
+        <h3 class="font-league-spartan font-semibold text-gray text-3xl mb-10">Estadisticas de tu última publicación</h3>
+        <div class="flex gap-10">
+          <div class="chart bg-white border border-gray-2 p-5">
+            <h4 class="text-primary font-lato font-bold text-xl">Reacciones</h4>
+            <div id="chart-1" class="min-w-[600px]"></div>
+          </div>
+          <div class="chart bg-white border border-gray-2 p-5">
+            <h4 class="text-primary font-lato font-bold text-xl">Comentarios</h4>
+            <div id="chart-2" class="min-w-[600px]"></div>
+          </div>
+        </div>
+      </div>
     </div>
-
   </main>
-
-
 {% endblock %}

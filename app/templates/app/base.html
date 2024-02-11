@@ -18,7 +18,8 @@
             black: '#373F41',
             gray: '#7E7E7E',
             white: '#F4F5F7',
-            'gray-2': '#D9D6D6'
+            'gray-2': '#D9D6D6',
+            'primarydark': '#2B6BA5'
           },
           minWidth: {
             600: '600px'
@@ -47,6 +48,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
     <link rel="stylesheet" href="{% static 'app/css/animations.css' %}">
+    {% block head %}{% endblock %}
   </head>
   <body class="bg-white">
     {% block content %}{% endblock %}
