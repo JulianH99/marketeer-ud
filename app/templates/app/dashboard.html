@@ -96,7 +96,7 @@
         <img src="{% static 'app/assets/dashboard-trees.svg' %}" alt="Trees">
       </div>
       <div id="social-media-accounts" class="mt-9 mb-20">
-        <p class="text-primarydark font-league-spartan font-semibold text-4xl mb-5">Social Media Accounts</p>
+        <p class="text-primarydark font-league-spartan font-semibold text-4xl mb-5">Cuentas conectadas</p>
         <div id="social-media-accounts-list" class="flex gap-6">
           {% for account in accounts %}
             <div class="account rounded-lg bg-white p-3 font-lato grow max-w-64"
@@ -106,7 +106,7 @@
                 {{ account.account }}
               </span>
               <span class="followers py-4 font-lato font-extrabold text-5xl text-center block text-black">{{ account.followers }}</span>
-              <span class="block text-center font-lato font-light text-gray">Followers</span>
+              <span class="block text-center font-lato font-light text-gray">Seguidores</span>
             </div>
           {% endfor %}
         </div>
